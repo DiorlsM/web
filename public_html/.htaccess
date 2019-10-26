@@ -1,0 +1,13 @@
+# Do not remove this line, otherwise mod_rewrite rules will stop working
+#RewriteBase /
+
+RewriteEngine On
+RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK)
+RewriteRule .* - [F]
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+Options -Indexes
+#para ubuntu instalar  sudo a2enmod headers
+#Header append X-FRAME-OPTIONS "SAMEORIGIN"
